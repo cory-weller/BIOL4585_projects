@@ -1,10 +1,11 @@
 # Data Interpretation Project
 
 ## Overview
+You have gained a lot of skills so far in this class, ranging from file manipulation in `bash`, submitting jobs to the clusters, filtering data with `data.table` and plotting data with `ggplot`. In this final project, you will select, analyze, plot, and publish your workflow/interpretation.
 
-First, you will select a published data set that you find interesting. Using that data, you will create three plots to address different questions related to the data. You will 'present' your work via a GitHub repository that contains your code, describes the questions you sought to answer, and shows the plots & your interpretations. **Each person at a table should use a different data set**, though it is fine to assist each other with technical/coding issues.
+You will be able to choose a data set that interests you, and then create three plots to address different questions related to the data. You will publish your work via a GitHub repository that contains your code, describes the questions you sought to answer, and shows the plots & your interpretations. **Each person at a table should use a different data set**, though it is fine to assist each other with technical/coding issues.
 
-You will have this week and the next to work on and polish your project
+You will have both this week and the following class time (April 15 and April 22) to work on and polish your project, ask for assistance, and prepare to share your results with the class (on the last day, April 29) in a very brief (~2 minute) presentation.
 
 ## Example Data Sets
 
@@ -42,7 +43,7 @@ You will *fork* the `BIOL4585_projects` repository. A *fork* is a copy where you
 
 8. Complete the Data Camp chapter 1 [*Basic Workflow*](https://www.datacamp.com/courses/introduction-to-git-for-data-science) of the course *Introduction to Git for Data Science*
 
-9. Publish your repository by pushing your changes to your GitHub repository, then submitting a *pull request* on the [original repository](https://github.com/cory-weller/BIOL4585_projects) (see below for more dtail).
+9. Publish your repository by pushing your changes to your GitHub repository, then submitting a *pull request* on the [original repository](https://github.com/cory-weller/BIOL4585_projects) (see below for more detail).
 
 ## Checklist of project requirements
 Prior to submitting your pull request, make sure you've fulfilled the following criteria:
