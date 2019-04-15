@@ -1,8 +1,10 @@
-# Group Data Interpretation Project
+# Data Interpretation Project
 
 ## Overview
 
 First, you will select a published data set that you find interesting. Using that data, you will create three plots to address different questions related to the data. You will 'present' your work via a GitHub repository that contains your code, describes the questions you sought to answer, and shows the plots & your interpretations. **Each person at a table should use a different data set**, though it is fine to assist each other with technical/coding issues.
+
+You will have this week and the next to work on and polish your project
 
 ## Example Data Sets
 
@@ -36,28 +38,38 @@ You will *fork* the `BIOL4585_projects` repository. A *fork* is a copy where you
 
 6. You can save your plots from `ggplot` using the `ggsave()` command. See `?ggsave` for more detail on how to use it.
 
-7. Create a file named `README.md` within your personal folder inside `BIOL4585_projects`.
+7. Create a file named `README.md` within your personal folder inside `BIOL4585_projects`. This file will contain GitHub Markdown text describing your workflow and display your plots. (FYI, this page you're reading is written in GitHub Markdown!) A final submission will look something like the [example I added here](https://github.com/cory-weller/BIOL4585_projects/tree/master/caw5cv) and you're free to copy/edit my example as a template.
 
-A final submission will look something like the [example I added here](https://github.com/cory-weller/BIOL4585_projects/tree/master/caw5cv).
+8. Complete the Data Camp chapter 1 [*Basic Workflow*](https://www.datacamp.com/courses/introduction-to-git-for-data-science) of the course *Introduction to Git for Data Science*
+
+9. Publish your repository by pushing your changes to your GitHub repository, then submitting a *pull request* on the [original repository](https://github.com/cory-weller/BIOL4585_projects) (see below for more dtail).
 
 ## Checklist of project requirements
+Prior to submitting your pull request, make sure you've fulfilled the following criteria:
 
-You will need to create a GitHub account to publish your workflow.
-# How to retrieve the same data that you did
-
-1. Your repository should include the data you used, and a text file describing how you retrieved it and plotted it. Your work flow text file should be understandable and contain comments to guide the reader through the workflow.
+1. Your repository should include the data (file) you analyzed, and a text file describing how you retrieved it and plotted it. Your work flow text file should be understandable and contain comments to guide the reader through the workflow.
 
 2. Your repository should contain (at least) three quality plots that you generated with ggplot, with clean axis, title, and legend labels.
 
 3. Your repository should contain a `README.md` file written in [GitHub Markdown](https://guides.github.com/features/mastering-markdown/) describing your work. See my [example](https://github.com/cory-weller/BIOL4585_projects/tree/master/caw5cv)
 
-4. Your repository should be shared via a *pull request* after completing all above requirements.
-
-**What to do after completing your work**: Briefly, you will use `git add`, `git commit` and `git push` to add your changes to the GitHub repository online, then submit a *pull request* to propose merging your changes. These terms may sound confusing for now, and that's fine. You first add all of your changes (while inside the repository) with  `git add -A .`, then *commit* those changes using `git commit -m "add changes"`, and *push* those changes to GitHub using `git push origin master`. You can then propose your changes be merged into the original repository by navigating [here](https://github.com/cory-weller/BIOL4585_projects) and clicking *New pull request*. See [here](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) for more detail.
+## Sharing your work via a *pull request*
+Briefly, you will use `git add`, `git commit` and `git push` to add your changes to the GitHub repository online, then submit a *pull request* to propose merging your changes. These terms may sound confusing for now, and that's fine. You first add all of your changes (while inside the repository) with  `git add -A .`, then *commit* those changes using `git commit -m "add files"`, and *push* those changes to GitHub using `git push origin master`. You can then propose your changes be merged into the original repository by navigating [here](https://github.com/cory-weller/BIOL4585_projects) and clicking *New pull request*. See [here](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) for more detail.
 
 ```
+# Example flow for pushing your changes to your GitHub account
+
+# Make sure you're in the right directory
 cd /scratch/$USER/BIOL4585_projects
+
+# Add all files for preparing to push them
 git add -A .
+
+# commit the changes with a log message. You can include any message you want, here it's "add files"
 git commit -m "add files"
+
+# push the changes to your GitHub repository 'in the cloud'
 git push origin master
+
+# Next step: Navigate to https://github.com/cory-weller/BIOL4585_projects and submit a pull request
 ```
