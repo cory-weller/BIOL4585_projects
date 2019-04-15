@@ -1,0 +1,31 @@
+# In bash
+# Download data
+wget https://link/to/data/download.csv -O data.csv
+
+# In R
+library(ggplot2)
+library(data.table)
+
+
+# read in data
+dat <- fread('data.csv', sep=",", header=FALSE)
+
+# plot 1
+plot1 <- ggplot(dat, aes(x=variable1, y=variable2, color=variable3)) +
+geom_point() + labs(x="X variable description", y="Y variable description", title="Plot title")
+
+# plot 2
+plot2 <- ggplot(dat, aes(x=variable1, y=variable2, color=variable3)) +
+geom_boxplot() +
+labs(x="X variable description", y="Y variable description", title="Plot title") +
+facet_grid(.~variable4)
+
+# plot 3
+# Filter data in some way
+dat.long <- melt(dat, measure.vars=c("variable1","variable2","variable3"))
+plot3 <- ggplot(dat.long, aes(x=variable2, y=value, color=variable))
+
+# save plots
+ggsave(plot1, file="Var1_vs_Var2.png")
+ggsave(plot2, file="Var1_vs_Var3.png")
+ggsave(plot3, file="Var2_over_time.png")
