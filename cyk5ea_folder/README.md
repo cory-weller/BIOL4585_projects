@@ -8,7 +8,7 @@ I used data from https://datadryad.org/bitstream/handle/10255/dryad.79667/allnut
 
 ## Q1: Does Low levels of Glucose correlate with High levels of Glucose?
 
-![](graph.1.png)
+![](plot1.png)
 
 file:///var/folders/z7/0g9j2s992bzgjym1djysn8v40000gn/T/com.apple.Safari/WebKitDropDestination-OyEnhH2b/Screen%20Shot%202019-04-22%20at%204.45.18%20PM.png
 
@@ -16,7 +16,7 @@ file:///var/folders/z7/0g9j2s992bzgjym1djysn8v40000gn/T/com.apple.Safari/WebKitD
 
 ## Q2: Does High Levels of Protein vary with Triglyceride Levels ?
 
-![](graph.2.png)
+![](plot2.png)
 
 file:///var/folders/z7/0g9j2s992bzgjym1djysn8v40000gn/T/com.apple.Safari/WebKitDropDestination-A1voRExX/Screen%20Shot%202019-04-22%20at%204.50.58%20PM.png
 
@@ -24,7 +24,7 @@ file:///var/folders/z7/0g9j2s992bzgjym1djysn8v40000gn/T/com.apple.Safari/WebKitD
 
 ## Q3: Describe the relationship between Glucose and Glycogen ?
 
-![](graph.3.png)
+![](plot3.png)
 
 file:///var/folders/z7/0g9j2s992bzgjym1djysn8v40000gn/T/com.apple.Safari/WebKitDropDestination-DQCy8hlT/Screen%20Shot%202019-04-22%20at%204.52.32%20PM.png
 
