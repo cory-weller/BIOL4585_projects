@@ -1,0 +1,27 @@
+# In bash
+# Download data
+wget https://datadryad.org/bitstream/handle/10255/dryad.79667/allnutrients.csv?sequence=1
+
+# In R
+library(ggplot2)
+library(data.table)
+
+
+# read in data
+dt <- fread('allnutrients.csv?sequence=1')
+
+# plot 1
+ plot1 <- ggplot(dt, aes(x=glucose.high, y=glucose.low)) +geom_point()+ xlab(“High Levels of Glucose“) +ylab(“Low Levels of Glucose“) + ggtitle(“Glucose Levels“) + ggsave(plot1, file="plot1.png")
+
+# plot 2
+plot2 <- ggplot(dt, aes(x=protein.high, y=triglycerides.main)) + geom_point() + xlab("High Levels of Protein") +ylab("Triglycerides Levels") + ggtitle("Triglyceride Levels vs. High Levels of Protein”)+ ggsave(plot2, file="plot2.png")
+
+
+# plot 3
+# Filter data in some way
+plot3 <- ggplot(dt, aes(x=glucose.main, y=glycogen.main)) + geom_point() + xlab("Glucose Levels") +ylab("Glycogen Levels") + ggtitle("Glucose vs. Glycogen Levels")+ ggsave(plot3, file="plot3.png")
+
+# save plots
+ggsave(plot1, file="plot1.png")
+ggsave(plot2, file="plot2.png")
+ggsave(plot3, file="plot3.png")

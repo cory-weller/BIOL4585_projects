@@ -1,31 +1,24 @@
-# Data summary by Cassidy Kelly
+# Data summary by C. Weller
 
-**Note**: BIOL4585_project
+**Note**: feel free to copy this file as a template into your own personal folder within `BIOL4585_projects`. Then, edit as you wish for your own purposes.
 
 ## Overview of data
-I used data from https://datadryad.org/bitstream/handle/10255/dryad.79667/allnutrients.csv?sequence=1
- which describes Mean phenotype values for various DGRP (drosophila melanogaster) lines. The complex contributions of genetics and nutrition to immunity in Drosophila melanogaster.
+I used data from https://link/to/data/download.csv which describes (variables) for a population of (organism)s.
 
-## Q1: Does Low levels of Glucose correlate with High levels of Glucose?
+## Q1: Does variable 1 correlate with variable 2?
 
 ![](plot1.png)
 
-file:///var/folders/z7/0g9j2s992bzgjym1djysn8v40000gn/T/com.apple.Safari/WebKitDropDestination-OyEnhH2b/Screen%20Shot%202019-04-22%20at%204.45.18%20PM.png
+*Interpreation*: The data show that ... blah blah blah.
 
-*Interpreation*: The data show that their exist no correlation among high and low levels of glucose.
-
-## Q2: Does High Levels of Protein vary with Triglyceride Levels ?
+## Q2: Does ... vary with variable ?
 
 ![](plot2.png)
 
-file:///var/folders/z7/0g9j2s992bzgjym1djysn8v40000gn/T/com.apple.Safari/WebKitDropDestination-A1voRExX/Screen%20Shot%202019-04-22%20at%204.50.58%20PM.png
+*Interpreation*: The data show that ... blah blah blah.
 
-*Interpreation*: The data show that does not exist any correlation among Triglyceride and Protein Levels.
-
-## Q3: Describe the relationship between Glucose and Glycogen ?
+## Q3: Does ... over time .. ?
 
 ![](plot3.png)
 
-file:///var/folders/z7/0g9j2s992bzgjym1djysn8v40000gn/T/com.apple.Safari/WebKitDropDestination-DQCy8hlT/Screen%20Shot%202019-04-22%20at%204.52.32%20PM.png
-
-*Interpreation*: The data show that Glucose and Glycogen exist a positive linear correlation.
+*Interpreation*: The data show that ... blah blah blah.
