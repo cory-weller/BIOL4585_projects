@@ -1,0 +1,26 @@
+# In Bash
+# Downloading Data file
+wget https://datadryad.org/bitstream/handle/10255/dryad.130367/Galbraith%20et%20al%202016%20JAB.csv
+
+#In R
+library(ggplot2)
+library(data.table)
+
+birds <- fread("Galbraith et al 2016 JAB.csv")
+
+#fix names (Variables had spaces and parentheses that ggplot didn't like)
+colnames(birds) <- c("ID", "Year", "Season", "Date", "Time", "Minutes_After_Sunrise", "Property_ID", "Property_Type", "Recapture", "Band_Number", "Species", "Sex", "Mass", "MaxWingChord", "Tail", "BillHead", "Bill_Length", "Bill_Width", "Bill_Depth", "Tarsus_Short", "Tarsus_Long", "FatScore", "PoxLesions", "Salmonella", "DustRuffle", "Ectoparasites", "MitesPresent", "MiteAbundance", "LicePresent", "LiceAbundance", "FecalSample", "CoccidiaPresent", "CoccidiaAbundance", "HelminthsPresent", "HelminthsAbundance")
+
+#Plot 1
+p1 <- ggplot(birds, aes(x = Property_Type, y = HelminthsAbundance, color = Species)) + geom_point() + facet_wrap(vars(Species)) + labs(title = "Effect of Feeding on Helminths Abundance", x = "Feeding Condition", y = "Helminths Parasite Abundance")
+
+#Plot 2
+p2 <- ggplot(birds, aes(x = Property_Type, y = LiceAbundance, color = Species)) + geom_point() + facet_wrap(vars(Species), scales = "free") + labs(title = "Effect of Feeding on Abundance of Lice", x = "Feeding Condition", y = "Feather Lice Abundance")
+
+#Plot 3
+p3 <- ggplot(birds, aes(x = FatScore, color = Species)) + geom_histogram(aes(y=(..count..)/tapply(..count..,..PANEL..,sum)[..PANEL..])) + facet_wrap(vars(Property_Type, Species)) + labs(title = "Feeding effect on Fat Score", y = "Proportion of Population")
+
+#Save
+ggsave(p1, file="PropertyType_vs_Helminths.png")
+ggsave(p2, file="PropertyType_vs_Lice.png")
+ggsave(p3, file="Property_Effect_on_FatScore.png")
