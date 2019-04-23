@@ -16,7 +16,7 @@ R
 library("gglot2")
 library("data.table")
 ```
-##Importing the data sets into R and converting it to a data.table object
+#Importing the data sets into R and converting it to a data.table object
 ```
 LowPheno <- fread('Low_phenotypes.txt')
 HighPheno <- fread('High_phenotypes.txt')
