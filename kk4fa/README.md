@@ -24,3 +24,9 @@ Within species, there does not appear to be significant variation between gender
 ![](habitat_v_heat.png)
 
 *Interpretation*: Based on the data, there's a clear trend towards standing water crustaceans having a higher heat tolerance across all oxygen levels. Furthermore, the running water crustaceans became far more heat sensitive in response to hypoxic conditions compared to standing water crustaceans. 
+
+## Citations
+
+Verberk WCEP, Leuven RSEW, van der Velde G, Gabel F (2018) Thermal limits in native and alien freshwater peracarid Crustacea: The role of habitat use and oxygen limitation. Functional Ecology 32(4): 926-936. https://doi.org/10.1111/1365-2435.13050 
+
+Verberk WCEP, Leuven RSEW, van der Velde G, Gabel F (2018) Data from: Thermal limits in native and alien freshwater peracarid Crustacea: the role of habitat use and oxygen limitation. Dryad Digital Repository. https://doi.org/10.5061/dryad.tf641 
