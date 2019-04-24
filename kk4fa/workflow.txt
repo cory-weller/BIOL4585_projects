@@ -1,0 +1,7 @@
+I fetched the data using fetch_data.sh, which downloads the dataset using wget and stores it in data.csv.
+
+I generated sex_v_heat.png using ggplot2 in R. I read in the data using fread and then used ggplot to generate a point plot with Sex as the x-axis and CTmax2 (temperature at which the crustaceans stopped moving) as the y-axis. I then colored the points by species. I also generated the faceted sex_v_heat_facet.png with a similar workflow to the previous plot but I jittered the points and faceted by species in order to isolate the variation in heat tolerance within species. The commands used to generate these plots can be found in sex_heat_tolerance.R.
+
+I generated o2_v_heat.png by generating a point plot with O2 in the x-axis and CTmax2 in the y-axis. The commands used to generate this plot can be found in oxygen_heat_tolerance.R.
+
+I generated habitat_v_heat.png by generating a point plot with habitat in the x-axis and CTmax2 in the y-axis. I also colored the data by species and faceted by O2. The commands used to generate this plot can be found in water_heat_tolerance.R.
