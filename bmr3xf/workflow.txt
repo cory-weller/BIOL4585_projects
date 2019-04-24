@@ -1,0 +1,97 @@
+#My Project
+
+#This is logging into Rivanna
+ssh -Y bmr3xf@rivanna.hpc.virginia.edu
+
+#Then enter your password
+
+#Go into your folder
+cd /scratch/bmr3xf/
+
+#Retrieve the new github 
+git clone https://github.com/bmraymond/BIOL4585_projects.git
+
+#Get into BIOL4585_projects
+cd BIOL4585_projects/
+
+#Make a directory with your computing ID
+mkdir bmr3xf
+
+#Download the new data
+wget https://datadryad.org/bitstream/handle/10255/dryad.178573/GIS_species_data.zip
+
+#ls to see what the download is called
+ls
+GIS_species_data.zip
+
+#unzip the data
+unzip GIS_species_data.zip
+
+#Choose the data you'll explore, but first cd into the new unzipped file
+cd GIS_species_data
+cd Seal
+
+# Load modules
+module load gcc
+module load R/3.5.1
+
+# Launch R session
+R
+
+# Note that quote marks are used here:
+install.packages("data.table")
+
+# Note that no quote marks are necessary here:
+library(data.table)
+
+#Load a file with a new name
+seal07 <-fread('Matishov2007_seal.csv')
+
+#Search through year 1997
+seal1997 <-seal07[Year %like% "1997"]
+
+#Average in 1997 
+ mean_1997 <-seal07[,mean(Year %like% "1997")]
+> mean_1997
+[1] 0.04941725
+
+#remove zero values from count
+seal07[ seal07 == 0] <-NA
+
+nonzero <- na.omit(seal07)
+
+#create new column where total number of seals in a month is shown
+bymonth<- nonzero[,list("NumSeals"=sum(Seal)), by=list(Month,Zone, Year)]
+
+
+#Install ggplot
+install.packages("ggplot2")
+
+library(ggplot2)
+
+#Question 1
+#group=1 seperated the colors for each Zone and Year
+plot1<- ggplot(bymonth, aes(x = Month, y = NumSeals, color=Zone, group=1)) + geom_line() + labs(x="Month", y="Number of Seals", title="Populations of Seals") + facet_wrap(vars(Year))
+
+#Save your plot
+ggsave(plot1, file="Question1.png")
+
+#see average number of seals by each year over time
+byyear<- nonzero[,list("NumSeals"=mean(Seal)), by=list(Year)]
+
+plot2<- ggplot(byyear, aes(x = Year, y = NumSeals)) + geom_line() + labs(x="Year", y="Number of Seals", title="Populations of Seals By Year") 
+
+#Save the plot again
+ggsave(plot2, file="Question2.png")
+
+#See what month seals populations peak
+newbymonth<- nonzero[,list("NumSeals"=mean(Seal)), by=list(Month)]
+
+plot3<- ggplot(newbymonth, aes(x = Month, y = NumSeals)) + geom_line() + labs(x="Month", y="Number of Seals", title="Populations of Seals Each Month") 
+
+#Save the plot one last time
+ggsave(plot3, file="Question3.png")
+
+
+
+
