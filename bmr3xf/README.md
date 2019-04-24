@@ -1,4 +1,4 @@
-# Data summary by Breanna Raymond
+# Where Are All the Seals? By Breanna Raymond
 
 ![](wedell-seal.jpg)
 **SEALS!** In this activity you will explore the populations of seals overtime.
