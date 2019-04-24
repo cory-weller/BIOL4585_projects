@@ -1,5 +1,6 @@
 # Data summary by Breanna Raymond
 
+![](wedell-seal.jpg)
 **SEALS!** In this activity you will explore the populations of seals overtime.
 
 ## Overview of data
