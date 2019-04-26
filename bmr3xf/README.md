@@ -17,10 +17,10 @@ I used data from https://datadryad.org/bitstream/handle/10255/dryad.178573/GIS_s
 
 ![](Question2.png)
 
-*Interpreation*: The data shows that seal populations seem to fluctutate over time. The 'Number of Seals' indicates the average number of seals counted in one day. In 1998, scientists were able to daily count 2.5 seals on average. In 2002 this average rises to almost 5 seals per day. In between the spikes of number of seals in 1998, 2000, 2002, and 2005, there are declines in seal counts. In 2003 the average daily count for seals was 1.
+*Interpreation*: The data shows that seal populations seem to fluctutate over time. The 'Number of Seals' indicates the average number of seals counted in one day. In 1998, scientists were able to daily count 2.5 seals on average. In 2002, this average rises to almost 5 seals per day. In between the spikes of 'Number of Seals' in 1998, 2000, 2002, and 2005, there are declines in seal counts. In 2003, the average daily count for seals was 1 and at its lowest.
 
 ## Q3: When do seal populations increase throughout the year?
 
 ![](Question3.png)
 
-*Interpreation*: The data show that each year on average has a spike in seal counts in the third month. This means that in March you are more likely to see seals in these zones. Populations are at their lowest at the beginnig of the year. 
+*Interpreation*: The data show that each year on average has a spike in seal counts in the third month. This means that in March you are more likely to see seals in these zones. Populations are also at their lowest in the first month of the year.
