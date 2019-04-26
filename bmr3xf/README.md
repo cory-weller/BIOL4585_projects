@@ -1,5 +1,5 @@
 # Where Are All the Seals? 
-##By Breanna Raymond
+## By Breanna Raymond
 
 ![](wedell-seal.jpg)
 *In this activity you will explore the populations of seals overtime.*
