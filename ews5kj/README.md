@@ -7,7 +7,7 @@ Access data: https://datadryad.org/bitstream/handle/10255/dryad.173846/data.xlsx
 
 Overview: This study tested the hypothesis that genetic variation of the canine oxytocin receptor (OXTR) gene may regulate the success of a dog's training to become a drug detection dog. A significant effect of the OXTR genotype on the success of the dogs' training was found, with a higher proportion of dogs carrying the C allele (T/C and C/C genotypes) being successful candidates than dogs carrying the T/T genotype. Dog personality scores of Training Focus (Factor 1) were positively correlated with an increased likelihood that a dog would successfully complete training.
 
-## Does OXTR Genotype correlated with training success? 
+## Is OXTR Genotype correlated with training success? 
 
 ![](qualified_genotype.png)
 
