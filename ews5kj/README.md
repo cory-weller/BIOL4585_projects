@@ -1,7 +1,5 @@
 # Data summary by E. Somerville
 
-**Note**: feel free to copy this file as a template into your own personal folder within `BIOL4585_projects`. Then, edit as you wish for your own purposes.
-
 ## Overview of data
 ![](cute_dog.jpg)
 
