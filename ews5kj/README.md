@@ -22,7 +22,7 @@ Overview: This study tested the hypothesis that genetic variation of the canine 
 ## Q3: How can factor scores predict training success for dogs with various OXTR genotypes?
 
 ![](Factor1.png)
-[](Factor2.png)
+![](Factor2.png)
 
 *Interpreation*: This study calculated composite "factor" scores that combined a dog's scores for the personality traits. Factor 1 ("Training Focus") was based on concentration, interest in target, activity, and boldness. Factor 2 ("Tolerance") was based on friendliness to humans and tolerance to other dogs. The data suggests that higher Training Focus scores are associated with successfully trained dogs for all genotypes. The data in the second chart suggests that Tolerance score is not a reliable indicator of training success.
 
