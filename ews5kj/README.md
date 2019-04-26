@@ -1,11 +1,9 @@
 # Data summary by E. Somerville
 
-## Overview of data
+## Effect of canine oxytocin receptor gene polymorphism on the successful training of drug detection dogs (Konno et al., 2018)
 ![](cute_dog.jpg)
 
-Data from: Effect of canine oxytocin receptor gene polymorphism on the successful training of drug detection dogs (Konno et al., 2018)
-
-Access data: https://github.com/ericsomerville/BIOL4585_projects/raw/master/drug_dogs.csv
+Access data: https://datadryad.org/bitstream/handle/10255/dryad.173846/data.xlsx?sequence=1
 
 Overview: This study tested the hypothesis that genetic variation of the canine oxytocin receptor (OXTR) gene may regulate the success of a dog's training to become a drug detection dog. A significant effect of the OXTR genotype on the success of the dogs' training was found, with a higher proportion of dogs carrying the C allele (T/C and C/C genotypes) being successful candidates than dogs carrying the T/T genotype. Dog personality scores of Training Focus (Factor 1) were positively correlated with an increased likelihood that a dog would successfully complete training.
 
