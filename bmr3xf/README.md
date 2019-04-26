@@ -1,7 +1,7 @@
 # Where Are All the Seals? By Breanna Raymond
 
 ![](wedell-seal.jpg)
-**SEALS!** In this activity you will explore the populations of seals overtime.
+*In this activity you will explore the populations of seals overtime.*
 
 ## Overview of data
 I used data from https://datadryad.org/bitstream/handle/10255/dryad.178573/GIS_species_data.zip which describes the population density of seals over time.
