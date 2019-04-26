@@ -5,7 +5,7 @@ By Breanna Raymond
 *In this activity you will explore the populations of seals overtime.*
 
 ## Overview of data
-I used data from https://datadryad.org/bitstream/handle/10255/dryad.178573/GIS_species_data.zip which describes the population density of seals over time.
+I used data from https://datadryad.org/bitstream/handle/10255/dryad.178573/GIS_species_data.zip which describes the population density of seals over time in the Kara Sea, Barents Sea, and Franz Josef Land of Northern Siberia.
 
 ## Q1: How do seal populations over time compare in each zone?
 
