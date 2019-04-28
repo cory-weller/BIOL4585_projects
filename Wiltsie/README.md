@@ -5,6 +5,7 @@
 I used data from https://datadryad.org/bitstream/handle/10255/dryad.79667/allnutrients.csv which describes the different nutrition, weights, and bacterial loads of drosophila melanogaster (flies).
 
 ## Q1: Is there a correlation between nutrition type (glucose, glycogen, glycerol, triglycerides) & amount and immunity of the fly, as measured by bacterial load?
+
 To answer this question, the different types of nutrition phenotypes had to melted together first. Next, I needed to create a new column that could categorize load as low, medium, ad high, and order those variables. Finally, I created a box plot to show the relationship.
 
 
@@ -20,6 +21,7 @@ flies2[load.main < 12, load.value := "low_load"]
 flies2[load.main >= 12 & load.main < 14, load.value := "medium_load"]
 flies2[load.main >= 14, load.value := "high_load"]
 flies2[,load.value := factor(load.value, levels = c("low_load", "medium_load", "high_load"))]
+
 ```
 Generate a box plot to see the relationship, and save the plot
 ```
@@ -28,15 +30,15 @@ ggplot(flies2, aes(x = variable, y = value, color = load.value)) + geom_boxplot(
 
 Q1 <- ggplot(flies2, aes(x = variable, y = value, color = load.value)) + geom_boxplot() +  xlab("Nutrition Types") + ylab("Nutrition Amount") + ggtitle("Relationship between Nutrition and Immunity")
 
-ggsave('Relationship between Nutrition and Immunity.png', Q1)
+ggsave('Q1.png', Q1)
 ```
 
 ![](Q1.png)
 
-
 *Interpreation*: The data show that there does not appear to be a significant relationship between amount of nutrition or type of nutrition and immunity. For each nutrition type, as indicated on the x axis, there is no large difference in the nutrition amount value on the y axis for low, medium, and high load.
 
 ### Q2: Is there a correlation between nutrition type (glucose, glycogen, glycerol, and triglycerides) & amount and fly weight?
+
 To answer this question, I have already melted the nutrition variables, but I need to create a new column for classifying weight as low, medium, and high and order those variables. Finally, I generated a box plot to show the relationship.
 
 
@@ -57,18 +59,21 @@ ggplot(flies2, aes(x = variable, y = value, color = weight.value)) + geom_boxplo
 
 Q2 <- ggplot(flies2, aes(x = variable, y = value, color = weight.value)) + geom_boxplot() +  xlab("Nutrition Types") + ylab("Nutrition Amount") + ggtitle("Relationship between Nutrition and Weight")
 
-ggsave('Relationship between Nutrition and Weight.png', Q2)
+ggsave('Q2.png', Q2)
 ```
 
 ![](Q2.png)
 
+
 *Interpreation*: The data show that for each type of nutrition, as the amount consumed increases, so does the weight of the fly. Each nutrition type, as indicated by the x axis, shows increasing nutrition amount for low, medium, and high weight flies.
 
 ## Q3: Is there a relationship between load and weight?
+
 To answer this question, I needed to create the same columns for categorizing both load and weight and order them, except this time on the non-melted data. Then I generated a scatterplot to show the relationship, excluding columns that were missing data.
 
 Use the non-melted data, and subset the load column and the weight column by the same standards used in the previous questions for the melted data
 ```
+
 flies[load.main < 12, load.value := "low_load"]
 flies[load.main >= 12 & load.main < 14, load.value := "medium_load"]
 flies[load.main >= 14, load.value := "high_load"]
@@ -86,11 +91,12 @@ flies[,weight.value := factor(weight.value, levels = c("low_weight", "medium_wei
 
 Generate a scatter plot, excluding the columns that were missing data, and save the graph
 ```
+
 ggplot(flies[!is.na(load.main) & !is.na(meanweight.main) & !is.na(load.value) & !is.na(weight.value)], aes(x = load.main, y = meanweight.main, color = load.value)) + geom_point() + facet_wrap(vars(weight.value)) + xlab("Load") + ylab("Weight") + ggtitle("Relationship between Load and Weight")
 
 Q3 <- ggplot(flies[!is.na(load.main) & !is.na(meanweight.main) & !is.na(load.value) & !is.na(weight.value)], aes(x = load.main, y = meanweight.main, color = load.value)) + geom_point() + facet_wrap(vars(weight.value)) + xlab("Load") + ylab("Weight") + ggtitle("Relationship between Load and Weight")
 
-ggsave('Relationship between Load and Weight.png', Q3)
+ggsave('Q3.png', Q3)
 ```
 
 ![](Q3.png)
