@@ -5,11 +5,7 @@ I used data from https://datadryad.org/bitstream/handle/10255/dryad.182697/Data-
 
 ## Q1: Do female Drosophila naturally prefer mating with wild-type or Curly mutant flies?
 
-![](/scratch/ane7sd/BIOL4585_projects/ane7sd/myplot.png)
-
-
-![Plot 1](ane7sd/plot1.PNG)
-
+![Plot 1](Natural_Mating_Pref.png)
 
 
 
