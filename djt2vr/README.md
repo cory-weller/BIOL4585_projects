@@ -8,6 +8,7 @@ This dataset was retrieved from https://datadryad.org/bitstream/handle/10255/dry
 
 ![](Relationship_Between_Critical_Temperature_and_Oxygen_Condition.png)
 
+
 *Interpreation*: The data suggests that there is a difference in thermal tolerances between hypoxic (5kPa), normoxic (20kPa), and hyperoxic conditions (60kPa). Higher oxygen concentrations are associated with higher critical temperatures, for both native and exotic crustacean species. Differences in thermal tolerances between native and exotic species are most pronounced in the hypoxic condition, and the least distinct in the normoxic condition.
 
 Note: For this analysis Critical Temperature 1 (CTmax1) was used for analysis: the temperature where a subject demonstrated either no movement or was pronounced dead.
@@ -26,9 +27,10 @@ Critical Temperature 3 (CTmax3): intermittent/irregular undulation
 
 ## Q3: Do thermal tolerances vary by Crustacean species?
 
+
 ![](Critical_Temperature_by_Species.png)
 
-*Interpreation*: Critical temperature does vary by individual Crustacean species. Each species demonstrates a distinct thermal tolerance range at variable overall frequencies. Each species overlaps with the thermal tolerance of at least two other species. Further investigation with additional Crustacean species and environmental conditions is required.
+*Interpreation*: Critical temperature does vary according to individual Crustacean species. Each species demonstrates a distinct thermal tolerance range at variable overall frequencies. Each species overlaps with the thermal tolerance of at least two other species. Further investigation with additional Crustacean species and environmental conditions is required. 
 
 Note: CTmax1 was used for analysis. Exotic species: *Dikerogammarus villosus, Echinogammarus berilloni, Crangonyx pseudogracilis*, and *Gammarus tigrinus*. Native species: *Gammarus fossarum, Gammarus roeselii, Asellus aquaticus*, and *Gammarus pulex*.
 

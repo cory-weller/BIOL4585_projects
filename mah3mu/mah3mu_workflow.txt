@@ -1,0 +1,55 @@
+# load modules
+module load gcc
+module load R/3.5.1
+
+#Load data
+wget https://datadryad.org/bitstream/handle/10255/dryad.78937/Lines_data.csv
+
+#Launch R session
+R
+
+#Load data.table and ggplot2
+library(data.table)
+library(ggplot2)
+
+#Read data into R
+dt <- fread("Lines_data.csv")
+
+#Remove NA values
+dt <- na.omit(dt)
+
+#Change column names
+colnames(dt) <- c("Line","Environment","Fecundity","Length72h","Length144h","Survival")
+
+#Create growth column
+dt <- dt[,PercentGrowth := (Length144h-Length72h)/Length72h]
+
+#Create unique ID
+dt <- dt[,ID:=1:.N]
+
+#Melt data to look at change in length
+dt_melted <- melt(dt,measure.vars=c("Length72h","Length144h"))
+
+#Make a plot
+plot1 <- ggplot(dt_melted,aes(variable,value,color=Environment,group=ID))+geom_point()+geom_line()
+
+#Make a plot
+plot2 <- ggplot(dt,aes(Environment,PercentGrowth))+geom_boxplot()+theme(plot.title=element_text(hjust=0.5))+xlab("Environment")+ylab("Percent Change in Length")+ggtitle("Effect of Environment on Growth")
+
+
+#Make a plot to look at environmental effects on fecundity
+plot3 <- ggplot(dt,aes(Environment,Fecundity))+geom_boxplot()+theme(plot.title=element_text(hjust=0.5))+ylab("Number of Offspring")+xlab("Environment")+ggtitle("Effect of Environment on Fecundity")
+
+
+#Melt data to plot effect of environment on survival
+dt_survival <- melt(tapply(dt$Survival,dt$Environment,mean),varnames="Environment",value.name="Mean_Survival")
+
+#Make a plot to look at environmental effects on survival
+plot4 <- ggplot(dt_survival,aes(Environment,Mean_Survival))+geom_bar(position="dodge",stat="identity")+ylab("Proportion Surviving")+
+	xlab("Environment")+ggtitle("Effect of Environment on Survival")+theme(plot.title = element_text(hjust = 0.5))
+
+#Save plots
+ggsave(plot1,file="growth_vs_environment_1")
+ggsave(plot2,file="growth_vs_environment_2")
+ggsave(plot3,file="fecundity_vs_environment")
+ggsave(plot4,file="survival_vs_environment")

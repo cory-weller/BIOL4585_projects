@@ -1,0 +1,39 @@
+#Cory downloaded the data for me because it was in excel format online, and R needs it be in a csv
+#outline of download process: download excel sheet to computer, convert to csv, read it into R
+
+#navigate to R from Rivanna
+module load gcc
+module load R/3.5.1
+R
+
+#load R packages
+library(data.table)
+library(ggplot2)
+
+#read in data as csv
+os<-fread("ostriches.csv")
+
+#correlation between hip height and mass?
+#graph it
+ggplot(data=os, aes(x=hipH_m, y=mass_kg))+geom_point(size=2)+labs(x="Hip Height (meters)", y="Mass (kilograms)", title="Hip Height vs. Mass for Different Ostriches")+geom_smooth(method='lm')
+#save plot 1
+ggsave(file = "height_mass.png")
+
+#relationship between step frequency and length for different gaits?
+#make gait column with prettier names
+os[gait_ID == 2, gait:="run"]
+os[gait_ID == 1, gait:="walk"]
+#graph it
+ggplot(data=os, aes(x=stepLength_Norm, y=stepFreq_Norm, color=as.factor(BirdID)))+geom_point(alpha=0.2)+labs(x="Length of Step (relative)", y="Frequency of Steps (relative)", title="Length vs. Frequency of Steps for Different Gaits", color="Bird ID#")+facet_wrap(~gait)
+#save plot 2
+ggsave(file = "steps_gaits.png")
+
+#relationship between hip height and average velocity?
+#compute average speed for each bird based on all running data
+os[gait_ID=="2", speed:=mean(Vel_norm), by="BirdID"]
+#compute average speed for each bird based on all walking data
+os[gait_ID=="1", speed:=mean(Vel_norm), by="BirdID"]
+#graph it
+ggplot(data=os, aes(x=hipH_m, y=speed))+geom_point()+facet_wrap(~gait)+labs(x="Hip Height (m)", y="Average Speed (relative)", color="Bird ID#", title="Ostrich Speed as a Function of Hip Height for Different Gaits")+geom_smooth(method='lm')
+#save plot 3
+ggsave(file = "speed_heights.png")

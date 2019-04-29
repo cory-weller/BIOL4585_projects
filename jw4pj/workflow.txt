@@ -1,0 +1,42 @@
+Project Workflow
+
+## get data in bash ##
+
+wget https://datadryad.org/bitstream/handle/10255/dryad.78937/Lines_data.csv -O worm.csv
+
+## load modules for R ##
+
+module load gcc
+module load R/3.5.1
+
+## run R ##
+R
+
+## load packages in R ##
+library(ggplot2)
+library(data.table)
+
+## read in data ##
+
+worm <- fread('worm.csv', sep=";", header=TRUE)
+
+
+## Question: Is there a correlation between fecundity and environment? ##
+
+ggplot(worm, aes(y = Fecundity, x = Environment, color = Environment)) + geom_boxplot() + labs(title = "C. Elegans Fecundity under Different Environmental Treatments")
+ggsave("fecundityVSenvironment.png")
+
+## Question: Does length at different time points correlate with fecundity? ##
+
+ggplot(worm, aes(x = `Length (72h)`, y = Fecundity, color = Environment)) + geom_point() + geom_smooth(method = "lm") + labs(title = "C. Elegans Length vs Fecundity after 72 Hours")
+ggsave("lengthVSfecundity.png")
+
+ggplot(worm, aes(x = `Length (144h)`, y = Fecundity, color = Environment)) + geom_point() + geom_smooth(method = "lm") + labs(title = "C. Elegans Length vs Fecundity after 144 Hours")
+ggsave("lengthVSfecundity144.png")
+
+## Question: How does length vary over different time points for the different treatments? ##
+
+worm.long <- melt(worm, measure.vars=c("Length (72h)", "Length (144h)"))
+ggplot(worm.long, aes(x = variable, y = value, color = Environment)) + geom_violin() + xlab("") + ylab("Length") + labs(title = "C. Elegans Length Over Time under Different Environmental Treatments")
+ggsave("lengthVStime.png")
+
