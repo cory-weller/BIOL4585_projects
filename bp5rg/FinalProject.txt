@@ -1,0 +1,14 @@
+Final Project
+
+wget https://datadryad.org/bitstream/handle/10255/dryad.168233/FE_datfile_TTolerance.csv
+setwd("/scratch/bp5rg/BIOL4585_projects/bp5rg")
+data <- fread("FE_datfile_TTolerance.csv")
+plot1 <- ggplot(data, aes(x = species.name, y = CTmax1, color = species.name)) + geom_point()
+plot2 <- ggplot(data, aes(x = Treatment, y = CTmax2, color = species.name)) + geom_point()
+plot3 <- ggplot(data, aes(x = habitat, y = CTmax2, color = species.name)) + geom_point()
+
+plot1 <- plot1 + labs(x = "Species Name", y = "CTmax1", title = "Heat Tolerance for Different Species of Crustacean", color = "Species Name")
+
+plot2 <- plot2 + labs(x = "Condition", y = "CTmax2", title = "Heat Tolerance of Crustacean Species under Different O2 Conditions", color = "Species Name")
+
+plot3 <- plot3 + labs(x = "Habitat", y = "CTmax2", title = "Heat Tolerance of Crustacean Species Living in Different Habitats", color = "Species Name")
