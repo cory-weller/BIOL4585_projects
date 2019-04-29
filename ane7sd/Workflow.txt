@@ -1,0 +1,58 @@
+# In bash
+# Download data
+wget https://datadryad.org/bitstream/handle/10255/dryad.182697/Data-set%20Mate-copying%20of%20a%20costly%20variant%20.xlsx
+
+# Load R
+module load gcc
+module load R/3.5.1
+R
+
+# In R
+library(ggplot2)
+library(data.table)
+
+# Read in and edit data
+# For innate experiments
+innate_all <- fread('Data-set-mating.csv',sep=",", header =TRUE)
+innate <- data.table(innate_all[,1:12][! is.na(PhenotypeChosen)]) # removes empty columns
+
+# For copying mating experiments
+copy_all <- fread('Data-set-Mate-copying.csv', sep =",", header=TRUE)
+copy <- data.table(copy_all[,1:16][! is.na(PhenotypeChosenTest)]) # removes empty columns
+
+
+# plot 1
+plot1<- ggplot(innate, aes(PhenotypeObserverFemale, ..count..)) + geom_bar(aes(fill = PhenotypeChosen), position="dodge") + labs(x="Phenotype of the Female", y="Number of Mating Occurrences", title="Innate Mating Preference of Wild-type and Mutant Female Drosophila", fill = "Phenotype of Male Chosen")+ scale_fill_manual(values = c("LightBlue", "Lightgreen"))
+
+# plot 2
+# Filter for only observations of curly copulation
+curly_demo <- copy[copy$PhenotypeChosenDemo == "Curly"]
+
+# Faceted plot
+plot2<- ggplot(curly_demo, aes(Treatment, ..count..)) + geom_bar(aes(fill=PhenotypeChosenTest), position = "dodge") + labs(x = "Observing Condition", y = "Number Mating", title ="Mating Preference after Watching Curly Mutant Mating", fill = "Phenotype of Male Chosen") + scale_fill_manual(values = c('Lightblue', 'Lightgreen'))+ facet_wrap(vars(PhenotypeObserverFemale))
+
+# Plot 3
+ggplot(copy, aes(PhenotypeObserverFemale, ..count..)) + geom_bar(aes(fill=as.factor(MateCopyingScores)), position = "dodge")
+
+# Prepare data for plot 3
+# Make copyscores a factor and rename the factors
+copyscores <- as.factor(copy$MateCopyingScores)
+copyscores<- revalue(copyscores, c("0"="No copying", "1"= "Copying"))
+
+#Plot 3
+plot3<- ggplot(copy, aes(copyscores, group = PhenotypeObserverFemale)) +
+          geom_bar(aes(y = ..prop.., fill = factor(..x..)), stat="count") +
+          scale_y_continuous(labels=scales::percent) +
+          ylab("relative frequencies") + facet_grid(~as.factor(PhenotypeObserverFemale))+ geom_text(aes(label = scales::percent(..prop..), y= ..prop.. ), stat= "count", vjust = -.5) + labs(x = "Success at Copying Mating Behavior", y = "Percent", title ="Frequency of Copying Mating Choices in Wild-type and Curly Flies", fill = "Success at Copying")  +
+          scale_fill_manual(values = c('Red', 'Green'), labels = c("No Copying", "Copying"))
+
+
+# Save Plots
+ggsave(plot1, file = "Natural_Mating_Pref.png")
+ggsave(plot2, file = "Watching_Curly.png")
+ggsave(plot3, file = "Copying_Success.png")
+
+# Works Cited
+Nöbel S, Danchin E, Isabel G (2018) Mate-copying for a costly variant in Drosophila melanogaster females. Behavioral Ecology 29(5): 1150-1156. https://doi.org/10.1093/beheco/ary095
+
+Nöbel S, Danchin E, Isabel G (2018) Data from: Mate-copying for a costly variant in Drosophila melanogaster females. Dryad Digital Repository. https://doi.org/10.5061/dryad.739h56c
