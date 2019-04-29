@@ -14,15 +14,15 @@ library(data.table)
 # Read in and edit data
 # For innate experiments
 innate_all <- fread('Data-set-mating.csv',sep=",", header =TRUE)
-innate <- data.table(innate_all[,1:12][! is.na(PhenotypeChosen)]) # removes empty columns
+innate <- data.table(innate_all[,1:12][! is.na(PhenotypeChosen)]) # removes empty columns and rows
 
 # For copying mating experiments
 copy_all <- fread('Data-set-Mate-copying.csv', sep =",", header=TRUE)
-copy <- data.table(copy_all[,1:16][! is.na(PhenotypeChosenTest)]) # removes empty columns
+copy <- data.table(copy_all[,1:16][! is.na(PhenotypeChosenTest)]) # removes empty columns and rows
 
 
 # plot 1
-plot1<- ggplot(innate, aes(PhenotypeObserverFemale, ..count..)) + geom_bar(aes(fill = PhenotypeChosen), position="dodge") + labs(x="Phenotype of the Female", y="Number of Mating Occurrences", title="Innate Mating Preference of Wild-type and Mutant Female Drosophila", fill = "Phenotype of Male Chosen")+ scale_fill_manual(values = c("LightBlue", "Lightgreen"))
+plot1<- ggplot(innate, aes(PhenotypeObserverFemale, ..count..)) + geom_bar(aes(fill = PhenotypeChosen), position="dodge") +  labs(x="Phenotype of the Female", y="Number of Mating Occurrences", title="Innate Mating Preference of Wild-type and Mutant Female Drosophila", fill = "Phenotype of Male Chosen")+ scale_fill_manual(values = c("LightBlue", "Lightgreen"))
 
 # plot 2
 # Filter for only observations of curly copulation
