@@ -8,20 +8,26 @@ wget https://datadryad.org/bitstream/handle/10255/dryad.78937/Lines_data.csv
 mv Lines_data.csv fecund.csv
 ### Load into R
 
+```
 module load gcc
 module load R/3.5.1
 R
+```
 
 ### Install Necessary Packages
 
+```
 install.packages("data.table")
 install.packages("ggplot2")
 library(ggplot2)
 library(data.table)
+```
 
 ### Name the data file
 
+```
 fecund <- fread("fecund.csv")
+```
 
 ## Q1: Does the nematodes' fecundity depend on their environment?
 
@@ -107,19 +113,19 @@ ggsave('Q3.png', Q3)
 ```
 ggplot(fecund,
   aes(x = Line, y = `Length (144h)`, color = Environment))+
-  geom_jitter() +
+  geom_boxplot() +
   ggtitle("Relationship between Genetic Line and Length at 144 hours") +
   xlab("Genetic Line") +
-  ylab("Length at 144 (mm)") ```
+  ylab("Length at 144h (mm)")
 
 Q4 <- ggplot(fecund,
   aes(x = Line, y = `Length (144h)`, color = Environment))+
-  geom_jitter() +
+  geom_boxplot() +
   ggtitle("Relationship between Genetic Line and Length at 144 hours") +
   xlab("Genetic Line") +
-  ylab("Length at 144 (mm)")
+  ylab("Length at 144h (mm)")
 
-ggsave('Q4.png', Q4)
+ggsave('Q4.png', Q4, width = 12, height = 7, units = "in")
 ```
 
 ![](Q4.png)
@@ -127,19 +133,19 @@ ggsave('Q4.png', Q4)
 ```
 ggplot(fecund,
   aes(x = Line, y = Fecundity, color = Environment))+
-  geom_jitter() +
+  geom_boxplot() +
   ggtitle("Relationship between Genetic Line and Fecundity") +
   xlab("Genetic Line") +
-  ylab("Fecundity (number of larvae produced)") ```
+  ylab("Fecundity (number of larvae produced)")
 
 Q5 <- ggplot(fecund,
   aes(x = Line, y = Fecundity, color = Environment))+
-  geom_jitter() +
+  geom_boxplot() +
   ggtitle("Relationship between Genetic Line and Fecundity") +
   xlab("Genetic Line") +
-  ylab("Fecundity (number of larvae produced)") ```
+  ylab("Fecundity (number of larvae produced)")
 
-ggsave('Q5.png', Q5)
+ggsave('Q5.png', Q5, width = 12, height = 7, units = "in")
 ```
 
 ![](Q5.png)
