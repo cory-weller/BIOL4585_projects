@@ -7,26 +7,34 @@ I used data from https://datadryad.org/bitstream/handle/10255/dryad.78937/Lines_
 wget https://datadryad.org/bitstream/handle/10255/dryad.78937/Lines_data.csv
 mv Lines_data.csv fecund.csv
 ### Load into R
+
 module load gcc
 module load R/3.5.1
 R
+
 ### Install Necessary Packages
+
 install.packages("data.table")
 install.packages("ggplot2")
 library(ggplot2)
 library(data.table)
+
 ### Name the data file
+
 fecund <- fread("fecund.csv")
 
 ## Q1: Does the nematodes' fecundity depend on their environment?
+
 ggplot(fecund,
   aes(x = Fecundity, y = Environment, color = Line)) + geom_jitter() +
   ggtitle("Relationship between Fecundity, Enivronment, and Genetic Line") +
   xlab("Fecundity (Number of larvae produced)")
+
 Q1 <- ggplot(fecund,
   aes(x = Fecundity, y = Environment, color = Line)) + geom_jitter() +
   ggtitle("Relationship between Fecundity, Enivronment, and Genetic Line") +
   xlab("Fecundity (Number of larvae produced)")
+
 ggsave('Q1.png', Q1)
 
 ![](Q1.png)
@@ -35,12 +43,14 @@ ggsave('Q1.png', Q1)
 
 
 ## Q2: Does the nematodes' fecundity correlate with their length at 72 hours?
+
 ggplot(fecund,
   aes(x = `Length (72h)`, y = Fecundity, color =Environment))+
   geom_jitter() +
   ggtitle("Relationship between Fecundity and Length at 72 hours") +
   xlab("Fecundity (Number of larvae produced)") +
   ylab("Length at 72h (mm)")
+
 Q2 <- ggplot(fecund,
   aes(x = `Length (72h)`, y = Fecundity, color =Environment))+
   geom_jitter() +
@@ -55,18 +65,21 @@ ggsave('Q2.png', Q2)
 
 
 ## Q3: Does the nematodes' fecundity correlate with their length at 144 hours?
+
 ggplot(fecund,
   aes(x = `Length (144h)`, y = Fecundity, color =Environment))+
   geom_jitter() +
   ggtitle("Relationship between Fecundity and Length at 144 hours") +
   xlab("Fecundity (Number of larvae produced)") +
   ylab("Length at 144 (mm)")
+
 Q3 <- ggplot(fecund,
   aes(x = `Length (72h)`, y = Fecundity, color =Environment))+
   geom_jitter() +
   ggtitle("Relationship between Fecundity and Length at 144 hours") +
   xlab("Fecundity (Number of larvae produced)") +
   ylab("Length at 144h (mm)")
+
 ggsave('Q3.png', Q3)
 
 ![](Q3.png)
@@ -75,12 +88,14 @@ ggsave('Q3.png', Q3)
 
 
 ## Q3: Does the nematodes' genetic line correlate with their length and fecundity at 144 hours?
+
 ggplot(fecund,
   aes(x = Line, y = `Length (144h)`, color = Environment))+
   geom_jitter() +
   ggtitle("Relationship between Genetic Line and Length at 144 hours") +
   xlab("Genetic Line") +
   ylab("Length at 144 (mm)")
+
 Q4 <- ggplot(fecund,
   aes(x = Line, y = `Length (144h)`, color = Environment))+
   geom_jitter() +
@@ -97,12 +112,14 @@ ggplot(fecund,
   ggtitle("Relationship between Genetic Line and Fecundity") +
   xlab("Genetic Line") +
   ylab("Fecundity (number of larvae produced)")
+
 Q5 <- ggplot(fecund,
   aes(x = Line, y = Fecundity, color = Environment))+
   geom_jitter() +
   ggtitle("Relationship between Genetic Line and Fecundity") +
   xlab("Genetic Line") +
   ylab("Fecundity (number of larvae produced)")
+  
 ggsave('Q5.png', Q5)
 
 ![](Q5.png)
