@@ -17,7 +17,7 @@ os<-fread("ostriches.csv")
 #graph it
 ggplot(data=os, aes(x=hipH_m, y=mass_kg))+geom_point(size=2)+labs(x="Hip Height (meters)", y="Mass (kilograms)", title="Hip Height vs. Mass for Different Ostriches")+geom_smooth(method='lm')
 #save plot 1
-ggsave(file = "height_mass.pdf")
+ggsave(file = "height_mass.png")
 
 #relationship between step frequency and length for different gaits?
 #make gait column with prettier names
@@ -26,7 +26,7 @@ os[gait_ID == 1, gait:="walk"]
 #graph it
 ggplot(data=os, aes(x=stepLength_Norm, y=stepFreq_Norm, color=as.factor(BirdID)))+geom_point(alpha=0.2)+labs(x="Length of Step (relative)", y="Frequency of Steps (relative)", title="Length vs. Frequency of Steps for Different Gaits", color="Bird ID#")+facet_wrap(~gait)
 #save plot 2
-ggsave(file = "steps_gaits.pdf")
+ggsave(file = "steps_gaits.png")
 
 #relationship between hip height and average velocity?
 #compute average speed for each bird based on all running data
@@ -36,4 +36,4 @@ os[gait_ID=="1", speed:=mean(Vel_norm), by="BirdID"]
 #graph it
 ggplot(data=os, aes(x=hipH_m, y=speed))+geom_point()+facet_wrap(~gait)+labs(x="Hip Height (m)", y="Average Speed (relative)", color="Bird ID#", title="Ostrich Speed as a Function of Hip Height for Different Gaits")+geom_smooth(method='lm')
 #save plot 3
-ggsave(file = "speed_heights.pdf")
+ggsave(file = "speed_heights.png")
