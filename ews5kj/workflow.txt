@@ -1,0 +1,80 @@
+# Clone the repository in bash and create a working space
+cd /scratch/ews5kj
+git clone https://github.com/ericsomerville/BIOL4585_projects.git
+cd BIOL4585_projects
+mkdir ews5kj
+cd ews5kj
+
+# Install the needed packages and launch R
+module load gcc
+module load R/3.5.1
+R
+install.packages("data.table")
+library(data.table)
+install.packages("ggplot2")
+library(ggplot2)
+
+# Download the dataset (drug_dogs.csv) into the working space
+dog_data <- fread("https://github.com/ericsomerville/BIOL4585_projects/raw/master/drug_dogs.csv")
+
+# Replace longer OXTR Genotypes with shorter labels
+dog_data_dt <- as.data.frame(sapply(dog_data, gsub, pattern= "GTC/GTT", replacement = "T/C"))
+dog_data_dt <- as.data.frame(sapply(dog_data_dt, gsub, pattern= "GTT/GTT", replacement = "T/T"))
+dog_data_dt <- as.data.frame(sapply(dog_data_dt, gsub, pattern= "GTC/GTC", replacement = "C/C"))
+
+# Reformat column names
+setnames(dog_data_dt, old = c("OTR-SNP4", "OTR-SNP5"), new = c("SNP4", "SNP5"))
+
+# Form subsets based on different SNP4 genotypes
+TC = subset(dog_data_dt, SNP4 == "T/C")
+TT = subset(dog_data_dt, SNP4 == "T/T")
+CC = subset(dog_data_dt, SNP4 == "C/C")
+TC_qualified = subset(TC, qualification == "qualified")
+TT_qualified = subset(TT, qualification == "qualified")
+CC_qualified = subset(CC, qualification == "qualified")
+
+# Form bar graph to see if any genotype is better for producing qualified drug dogs
+genotype_labels = c("T/C","T/T","C/C")
+qualified_percent = 100*c(nrow(TC_qualified)/nrow(TC), nrow(TT_qualified)/nrow(TT), nrow(CC_qualified)/nrow(CC))
+qualified_percent = format(round(qualified_percent, 2), nsmall = 2)
+df <- data.frame(labels = genotype_labels,values = qualified_percent)
+plot1 <- ggplot(df,aes(labels,values,fill = genotype_labels))+geom_bar(stat = "identity", width =0.65)+ geom_text(aes(label = qualified_percent), vjust=1.6,color="white", size=+ 5)+theme_minimal() + ylim(0,50)+ theme(legend.position="none") + xlab("OXTR Genotype") + ylab("proportion of dog training success (%)") + theme(text = element_text(size=15)) + ggtitle("Training success by OXTR genotype") + theme(plot.title = element_text(hjust = 0.5),axis.text.x = element_text(size =14))
+ggsave("qualified_genotype.png")
+
+# form a new data table where the personality trait is included in the same row as the score
+activity <- dog_data_dt[,c("qualification","Activity")]
+activity$trait <- rep("Activity", nrow(activity))
+independency <- dog_data_dt[,c("qualification","Independency")]
+independency$trait <- rep("Independency", nrow(independency))
+concentration <- dog_data_dt[,c("qualification","Concentration")]
+concentration$trait <- rep("Concentration", nrow(concentration))
+friendliness <- dog_data_dt[,c("qualification","Friendliness.to.humans")]
+friendliness$trait <- rep("Friendliness", nrow(friendliness))
+tolerance <- dog_data_dt[,c("qualification","Tolerance.to.dogs")]
+tolerance$trait <- rep("Tolerance", nrow(tolerance))
+boldness <- dog_data_dt[,c("qualification","Boldness")]
+boldness$trait <- rep("Boldness", nrow(boldness))
+interest <- dog_data_dt[,c("qualification","Interest.in.the.dummy")]
+interest$trait <- rep("Interest", nrow(interest))
+
+# give the second column all the same name so that the data tables can be combined, then combine them
+colnames(activity)[2] <- "score"
+colnames(independency)[2] <-"score"
+colnames(concentration)[2] <- "score"
+colnames(friendliness)[2] <-"score"
+colnames(boldness)[2] <- "score"
+colnames(interest)[2] <-"score"
+trait_dt <- rbind(activity, independency, concentration, friendliness, boldness, interest)
+trait_dt[,2] <- sapply(trait_dt[,2], as.numeric)
+
+# plot trait scores as a boxplot for dogs that were found to be qualified or unqualified
+plot2 <- ggplot(trait_dt, aes(x=trait, y=score, fill = qualification)) + geom_boxplot(width = 0.30)+ ggtitle("Personality scores and training results")+ theme(text = element_text(size=15), axis.text.x = element_text(angle = 90, hjust = 1),plot.title = element_text(hjust = 0.5))
+ggsave("personality_scores.png")
+
+# Create a plot that examines the different "Factor" composite scores for dogs that passed/failed training
+dog_data_dt$Factor1 <- as.numeric(as.character(dog_data_dt$Factor1))
+dog_data_dt$Factor2 <- as.numeric(as.character(dog_data_dt$Factor2))
+plot3 <- ggplot(dog_data_dt, aes(x=qualification, y=Factor1, color=SNP4)) + geom_point() + facet_wrap("SNP4")
+ggsave("Factor1.png")
+plot4 <- ggplot(dog_data_dt, aes(x=qualification, y=Factor2, color=SNP4)) + geom_point() + facet_wrap("SNP4")
+ggsave("Factor2.png")
