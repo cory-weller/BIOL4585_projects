@@ -4,8 +4,12 @@
 I used data from https://datadryad.org/bitstream/handle/10255/dryad.78937/Lines_data.csv which describes the fecundity, length, and survival for different populations of C. elegans under saline, uranium, or natural (control) conditions.
 
 ## Downloading Data and Installing Appropriate Packages in R
+
+```
 wget https://datadryad.org/bitstream/handle/10255/dryad.78937/Lines_data.csv
 mv Lines_data.csv fecund.csv
+```
+
 ### Load into R
 
 ```
