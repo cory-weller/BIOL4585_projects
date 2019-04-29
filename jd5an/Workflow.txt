@@ -1,0 +1,30 @@
+After opening MOBAXterm.
+  
+  1. $wget "https://datadryad.org/bitstream/handle/10255/dryad.44873/dryad%20data%20sharing.xlsx?sequence=1"
+	2. module load gcc
+	3. $ module load R/3.5.1
+	4. $R
+	5. install.packages("ggplot2")
+	6. install.packages("xlsx")
+	7. Library(ggplot2)
+	8. Library(xlsx)
+	9. dryadtable <- read.xlsx(dryadfile, 1)
+	10. BodySize Vs Population Plot Box
+		a. dryadplot <- ggplot(dryadtable, aes(x = Pop, y = Partner.BS.Standardized)) + geom_smooth()
+		b. dryadplotboxplot <- dryadplot+geom_boxplot()+ggtitle("BodySize by Population")
+    c. ggsave("dryadplot.png", width = 5, height = 5)
+	11. BodySizeVPartnerBodySize
+		a. partnerplot <- ggplot(dryadtable, aes(x  = Body.Size...Standardized, y = Partner.BS.Standardized))
+		b.  partnerplotjitter <- partnerplot + geom_jitter() 
+		c. ggsave("BodySizeVPartnerBodySize.png", width = 5, height = 5)
+	12. BodySizeVPartnerLine
+		a. linedjitter <- ggplot(dryadtable, aes(x = Body.Size...Standardized, y = Partner.BS.Standardized, col = Pop)) + geom_smooth()
+    c. ggsave("BodySizeVPartnerBodySizeLine.png", width = 5, height = 5)
+	13. Partner AttackJitter
+		a. partnerattack <- ggplot(dryadtable, aes(x = Relative.BS, y = Attack))
+		b. partnerplotattack <- partnerattack + geom_jitter(aes = (color = Pop))
+   c.  ggsave("Partnerattackjitter.png", width = 5, height = 5)
+	14. BoxPlot of attack times
+		a. Timeattack <- ggplot(dryadtable, aes(Latency…Min))
+		b. Timeattackplot <- Timeattack+geom_histogram()+xlim(0,12)+ggtitle('Time it takes for attack to occur ')
+   c.  ggsave("Timeattack.png", width = 5, height = 5)
