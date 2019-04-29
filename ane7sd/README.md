@@ -15,7 +15,8 @@ This plot shows that both curly and wild-type female Drosophila prefer to mate w
 This plot shows the mating preference of female Curly and wild-type Drosophila after watching Curly mutants copulate (mate) with another female. The informed females observed this copulation, while the uninformed did not. This plot shows that among both Curly and wild-type flies, after watching copulation with a Curly mutant (the informed groups), the females preferred mating with Curly flies over wild-type. However, in the uninformed Curly group, we would expect that the preference would be for wild-type, as shown in the previous figure, but instead we see a preference for curly as well. The change in preference is only seen in wild-type flies. In the uninformed group, the flies prefer mating with wild-type, while in the informed group, the flies prefer mating with Curly. This shows that the wild-type flies are exhibiting mate-copying, in which they copy the mating behavior of other flies.
 
 
-## Q3 What is the difference in the wild-type and curly mutants ability to copy the mating they observe?
-1 = observer female chose same male phenotype
-0 = observer female chose male phenotype
+## Q3 What is the difference in the wild-type and curly mutants ability to copy the mating choices they observe?
+
 ![Plot 3](Copying_Success.png)
+
+This plot shows the success of the curly and wild-type flies copying the mating behavior they observe (mating with curly or wild-type flies). A "Success" at copying is when the observer female chooses to mate with the same male phenotype that she observed mating, while no copying is when the observer female chooses the opposite male to mate with. As shown in this plot, there is not a significant difference between the wild-type and curly mutants ability to copy the mating choices of what they observe. Additionally, just over half of the mating choices for both types of flies are the same as what they observed, indicating that there is some mate-copying present, but it may not be very significant.  
