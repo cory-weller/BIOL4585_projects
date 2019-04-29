@@ -5,6 +5,8 @@ I used data from https://datadryad.org/bitstream/handle/10255/dryad.78937/Lines_
 
 ## Downloading Data and Installing Appropriate Packages in R
 
+### Download Data 
+
 ```
 wget https://datadryad.org/bitstream/handle/10255/dryad.78937/Lines_data.csv
 mv Lines_data.csv fecund.csv
