@@ -28,3 +28,6 @@ After opening MOBAXterm.
 		a. Timeattack <- ggplot(dryadtable, aes(Latency…Min))
 		b. Timeattackplot <- Timeattack+geom_histogram()+xlim(0,12)+ggtitle('Time it takes for attack to occur ')
    		c.  ggsave("Timeattack.png", width = 5, height = 5)
+		
+		
+The gitpull request occurred last week (I just canceled it on 4/29). I was away from grounds when I did most of the work so I originally had the graphs saved to my device so I just uploaded via github.
