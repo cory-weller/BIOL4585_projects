@@ -25,6 +25,8 @@ fecund <- fread("fecund.csv")
 
 ## Q1: Does the nematodes' fecundity depend on their environment?
 
+###Code for the plots
+
 ```
 ggplot(fecund,
   aes(x = Fecundity, y = Environment, color = Line)) + geom_jitter() +
@@ -46,6 +48,8 @@ ggsave('Q1.png', Q1)
 
 ## Q2: Does the nematodes' fecundity correlate with their length at 72 hours?
 
+###Code for the plots
+
 ```
 ggplot(fecund,
   aes(x = `Length (72h)`, y = Fecundity, color =Environment))+
@@ -60,7 +64,7 @@ Q2 <- ggplot(fecund,
   ggtitle("Relationship between Fecundity and Length at 72 hours") +
   xlab("Fecundity (Number of larvae produced)") +
   ylab("Length at 72h (mm)")
-  
+
 ggsave('Q2.png', Q2)
 ```
 
@@ -70,6 +74,8 @@ ggsave('Q2.png', Q2)
 
 
 ## Q3: Does the nematodes' fecundity correlate with their length at 144 hours?
+
+###Code for the plots
 
 ```
 ggplot(fecund,
@@ -95,6 +101,8 @@ ggsave('Q3.png', Q3)
 
 
 ## Q3: Does the nematodes' genetic line correlate with their length and fecundity at 144 hours?
+
+###Code for the plots
 
 ```
 ggplot(fecund,
