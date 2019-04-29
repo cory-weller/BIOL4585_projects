@@ -13,13 +13,13 @@ library(data.table)
 data <- fread("data.csv")
 
 #Plot 1
-plot1 <- ggplot(data,aes(x=weight.at.boxing, y=web.weight.web, color=attacked)) + geom_point() + labs(x="Weight of Black Widow", y="Weight of Web", title="Weight of Black Widow and Web in Relation to Attack of Spider")
+plot1 <- ggplot(data,aes(x=weight.at.boxing, y=web.weight.web, color=as.factor(attacked))) + geom_point() + labs(x="Weight of Black Widow", y="Weight of Web", title="Weight of Black Widow and Web")
 
 #Plot 2
-plot2 <- ggplot(data, aes(x=maturity.date, y=web.weight.web, color=retreated)) + geom_point() + labs(x="Date of Maturity", y="Weight of Web", title="Date of Maturity and Weight of Web in Relation to Retreating of Black Widow when Web is Stimulated")
+plot2 <- ggplot(data, aes(x=maturity.date, y=web.weight.web, color=as.factor(retreated))) + geom_point() + labs(x="Date of Maturity", y="Weight of Web", title="Date of Maturity and Weight of Web")
 
 #Plot 3
-plot3 <- ggplot(data, aes(x=struc.id, y=own.web, color=attacked)) + geom_point() + labs(x="Number of Lines on Web", y="Spider's Web", title="Number of lines on Spider's Web Depending on Spider's Ownership of Web") + geom_boxplot()
+plot3 <- ggplot(data, aes(x=own.web, y=struc.id, color=as.factor(attacked))) + geom_point() + labs(x="Spider's Web", y="Number of Lines on Web", title="Number of lines on Spider's Web") + geom_boxplot()
 
 #Save plots
 ggsave(plot1, file="SpiderWeight_vs_WebWeight.png")
