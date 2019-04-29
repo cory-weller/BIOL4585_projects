@@ -2,7 +2,7 @@
 
 
 ## Overview of data
-I used data from https://link/to/data/download.csv which describes the fecundity, size at 72h and 144h old, and survival of C. elegans within three different environmental treatments.
+I used data from https://datadryad.org/bitstream/handle/10255/dryad.78937/Lines_data.csv which describes the fecundity, size at 72h and 144h old, and survival of C. elegans within three different environmental treatments.
 
 ## Q1: Is there a correlation between fecundity and environment?
 
