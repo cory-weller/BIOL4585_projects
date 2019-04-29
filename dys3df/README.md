@@ -1,7 +1,7 @@
-#Data Summary by Daniel Song
+# Data Summary by Daniel Song
 
 **Overview of Data**
-I used data from https://datadryad.com
+I used data from https://datadryad.org/resource/doi:10.5061/dryad.ng4b0
 
 **Q1: Does Weight of Spider correlate with Weight of Web?**
 
