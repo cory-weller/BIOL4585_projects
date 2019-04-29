@@ -1,0 +1,27 @@
+#In bash
+#Download data
+wget -L https://datadryad.org/bitstream/handle/10255/dryad.117072/data.black.widow.spiders.csv
+
+#Change name of data
+mv data.black.widow.spiders.csv data.csv
+
+#In R
+library(ggplot2)
+library(data.table)
+
+#Load data into R
+data <- fread("data.csv")
+
+#Plot 1
+plot1 <- ggplot(data,aes(x=weight.at.boxing, y=web.weight.web, color=attacked)) + geom_point() + labs(x="Weight of Black Widow", y="Weight of Web", title="Weight of Black Widow and Web in Relation to Attack of Spider")
+
+#Plot 2
+plot2 <- ggplot(data, aes(x=maturity.date, y=web.weight.web, color=retreated)) + geom_point() + labs(x="Date of Maturity", y="Weight of Web", title="Date of Maturity and Weight of Web in Relation to Retreating of Black Widow when Web is Stimulated")
+
+#Plot 3
+plot3 <- ggplot(data, aes(x=struc.id, y=own.web, color=attacked)) + geom_point() + labs(x="Number of Lines on Web", y="Spider's Web", title="Number of lines on Spider's Web Depending on Spider's Ownership of Web") + geom_boxplot()
+
+#Save plots
+ggsave(plot1, file="SpiderWeight_vs_WebWeight.png")
+ggsave(plot2, file="MaturityDate_vs_WebWeight.png")
+ggsave(plot3, file="NumberWebLines_vs_OwnWeb.png")
