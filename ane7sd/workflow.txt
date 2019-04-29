@@ -22,14 +22,18 @@ copy <- data.table(copy_all[,1:16][! is.na(PhenotypeChosenTest)]) # removes empt
 
 
 # plot 1
-plot1<- ggplot(innate, aes(PhenotypeObserverFemale, ..count..)) + geom_bar(aes(fill = PhenotypeChosen), position="dodge") +  labs(x="Phenotype of the Female", y="Number of Mating Occurrences", title="Innate Mating Preference of Wild-type and Mutant Female Drosophila", fill = "Phenotype of Male Chosen")+ scale_fill_manual(values = c("LightBlue", "Lightgreen"))
+plot1<- ggplot(innate, aes(PhenotypeObserverFemale, ..count..)) + geom_bar(aes(fill = PhenotypeChosen), position="dodge") +
+ labs(x="Phenotype of the Female", y="Number of Mating Occurrences", title="Innate Mating Preference of Wild-type and Mutant Female
+  Drosophila", fill = "Phenotype of Male Chosen")+ scale_fill_manual(values = c("LightBlue", "Lightgreen"))
 
 # plot 2
 # Filter for only observations of curly copulation
 curly_demo <- copy[copy$PhenotypeChosenDemo == "Curly"]
 
 # Faceted plot
-plot2<- ggplot(curly_demo, aes(Treatment, ..count..)) + geom_bar(aes(fill=PhenotypeChosenTest), position = "dodge") + labs(x = "Observing Condition", y = "Number Mating", title ="Mating Preference after Watching Curly Mutant Mating", fill = "Phenotype of Male Chosen") + scale_fill_manual(values = c('Lightblue', 'Lightgreen'))+ facet_wrap(vars(PhenotypeObserverFemale))
+plot2<- ggplot(curly_demo, aes(Treatment, ..count..)) + geom_bar(aes(fill=PhenotypeChosenTest), position = "dodge") +
+labs(x = "Observing Condition", y = "Number Mating", title ="Mating Preference after Watching Curly Mutant Mating", fill = "Phenotype of Male Chosen") +
+scale_fill_manual(values = c('Lightblue', 'Lightgreen'))+ facet_wrap(vars(PhenotypeObserverFemale))
 
 # Plot 3
 ggplot(copy, aes(PhenotypeObserverFemale, ..count..)) + geom_bar(aes(fill=as.factor(MateCopyingScores)), position = "dodge")
@@ -43,7 +47,9 @@ copyscores<- revalue(copyscores, c("0"="No copying", "1"= "Copying"))
 plot3<- ggplot(copy, aes(copyscores, group = PhenotypeObserverFemale)) +
           geom_bar(aes(y = ..prop.., fill = factor(..x..)), stat="count") +
           scale_y_continuous(labels=scales::percent) +
-          ylab("relative frequencies") + facet_grid(~as.factor(PhenotypeObserverFemale))+ geom_text(aes(label = scales::percent(..prop..), y= ..prop.. ), stat= "count", vjust = -.5) + labs(x = "Success at Copying Mating Behavior", y = "Percent", title ="Frequency of Copying Mating Choices in Wild-type and Curly Flies", fill = "Success at Copying")  +
+          ylab("relative frequencies") + facet_grid(~as.factor(PhenotypeObserverFemale))+
+          geom_text(aes(label = scales::percent(..prop..), y= ..prop.. ), stat= "count", vjust = -.5) +
+          labs(x = "Success at Copying Mating Behavior", y = "Percent", title ="Frequency of Copying Mating Choices in Wild-type and Curly Flies", fill = "Success at Copying")  +
           scale_fill_manual(values = c('Red', 'Green'), labels = c("No Copying", "Copying"))
 
 
