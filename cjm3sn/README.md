@@ -60,6 +60,7 @@ Q2 <- ggplot(fecund,
   ggtitle("Relationship between Fecundity and Length at 72 hours") +
   xlab("Fecundity (Number of larvae produced)") +
   ylab("Length at 72h (mm)")
+  
 ggsave('Q2.png', Q2)
 ```
 
@@ -109,6 +110,7 @@ Q4 <- ggplot(fecund,
   ggtitle("Relationship between Genetic Line and Length at 144 hours") +
   xlab("Genetic Line") +
   ylab("Length at 144 (mm)")
+
 ggsave('Q4.png', Q4)
 ```
 
