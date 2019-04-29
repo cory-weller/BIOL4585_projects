@@ -1,0 +1,15 @@
+I retrieved this data from https://datadryad.org/resource/doi:10.5061/dryad.qj163 using wget on https://datadryad.org/bitstream/handle/10255/dryad.148516/KlefothEtAl_data.xlsx. I had to extract the files from the .xlsx on my own computer using the linux gnumeric tool. 
+
+I then opened R and used fread() to read in the two resulting .csv files from the .xlsx file. 
+
+I used the following commands to build the graphs:
+
+Close_v_distant.png = ggplot(angler2, aes(get("mean visits feeding spot close"), get("mean visits feeding spot distant"), col = get("total length_mm"))) + geom_point() + labs(y = "Mean visits feeding spot distant", x = "Mean visits feeding spots close", title = "Close visits vs. Distant visits") + fill_color_continuous(name = "Total length (mm)")
+
+Refuge_v_distant.png = ggplot(angler2, aes(get("mean time refuge use"), get("mean visits feeding spots distant"), col = get("total length_mm"))) + geom_point() + labs(y = "Mean visits feeding spot distant", x = "Mean time refuge use", title = "Refuge vs. Boldness") + fill_color_continuous(name = "Total length (mm)")
+
+Visits_v_boldness.png = ggplot(angler1, aes(fitness_20d_angling, Zvisits_feeding_spot_distant)) + geom_violin() + labs(x = "Fitness", y = "Visits to distant feeding spot", title = "Fitness of fish vs. boldness")
+
+
+
+
