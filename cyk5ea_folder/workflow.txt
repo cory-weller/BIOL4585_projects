@@ -11,7 +11,7 @@ library(data.table)
 dt <- fread('allnutrients.csv?sequence=1')
 
 # plot 1
- plot1 <- ggplot(dt, aes(x=glucose.high, y=glucose.low)) +geom_point()+ xlab(“High Levels of Glucose“) +ylab(“Low Levels of Glucose“) + ggtitle(“Glucose Levels“) + ggsave(plot1, file="plot1.png")
+> plot1<- ggplot(dt, aes(x=glucose.high, y=glycogen.low)) +geom_jitter() + xlab("High Levels of Glucose") + ylab("Low Levels of Glycogen") +ggtitle("Glucose vs. Glycogen Levels") + ggsave(plot1, file="plot1.png")
 
 # plot 2
 plot2 <- ggplot(dt, aes(x=protein.high, y=triglycerides.main)) + geom_point() + xlab("High Levels of Protein") +ylab("Triglycerides Levels") + ggtitle("Triglyceride Levels vs. High Levels of Protein”)+ ggsave(plot2, file="plot2.png")
@@ -19,7 +19,9 @@ plot2 <- ggplot(dt, aes(x=protein.high, y=triglycerides.main)) + geom_point() + 
 
 # plot 3
 # Filter data in some way
-plot3 <- ggplot(dt, aes(x=glucose.main, y=glycogen.main)) + geom_point() + xlab("Glucose Levels") +ylab("Glycogen Levels") + ggtitle("Glucose vs. Glycogen Levels")+ ggsave(plot3, file="plot3.png")
+# Melt data by Nutritional Type
+ melt_nutrition_type<- melt(dt, measure.vars= c("glucose.main", "glycogen.main", "glycerol.main", "triglycerides.main", "protein.main))
+ plot3<- ggplot(melt_nutrition_type, aes(x=variable, y=value, color=variable))+geom_boxplot()+  xlab("Nutrition Types") + ylab("Nutrition Amount") + ggtitle("Nutrition Type in relation to Value")+ggsave(plot3, file="plot3.png")
 
 # save plots
 ggsave(plot1, file="plot1.png")
