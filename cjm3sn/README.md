@@ -5,7 +5,7 @@ I used data from https://datadryad.org/bitstream/handle/10255/dryad.78937/Lines_
 
 ## Downloading Data and Installing Appropriate Packages in R
 
-### Download Data 
+### Download Data
 
 ```
 wget https://datadryad.org/bitstream/handle/10255/dryad.78937/Lines_data.csv
@@ -55,7 +55,7 @@ ggsave('Q1.png', Q1)
 
 ![](Q1.png)
 
-*Interpreation*: When looking at the data above, it is known that the nematodes produce the most larvae in the control environment, followed by the uranium environment, and finally, they produce the least larvae in the saline environment. Additionally, the third dimension of the plot show the different genetic lines used in the experiment, and there is no correlation between the line and survival in a particular environment. This is evident by the random scattering of color in each environmental condition.
+*Interpretation*: When looking at the data above, it is known that the nematodes produce the most larvae in the control environment, followed by the uranium environment, and finally, they produce the least larvae in the saline environment. Additionally, the third dimension of the plot show the different genetic lines used in the experiment, and there is no correlation between the line and survival in a particular environment. This is evident by the random scattering of color in each environmental condition.
 
 
 ## Q2: Does the nematodes' fecundity correlate with their length at 72 hours?
@@ -82,7 +82,7 @@ ggsave('Q2.png', Q2)
 
 ![](Q2.png)
 
-*Interpreation*: This data shows that the two variables do indeed correlate and show that the as fecundity increases, as does the nematodes length at 72 hours. Additionally, the the control produces both the highest fecundity, while the two experimental conditions, uranium and salt, produce the descending amounts of both, in that order.
+*Interpretation*: This data shows that the two variables do indeed correlate and show that the as fecundity increases, as does the nematodes length at 72 hours. Additionally, the the control produces both the highest fecundity, while the two experimental conditions, uranium and salt, produce the descending amounts of both, in that order.
 
 
 ## Q3: Does the nematodes' fecundity correlate with their length at 144 hours?
@@ -109,7 +109,7 @@ ggsave('Q3.png', Q3)
 
 ![](Q3.png)
 
-*Interpreation*: This data is very similar to the 72 hour data, however, the difference between the three groups is even more drastic. Length and Fecundity both increase with more favorable environments, however, there seem to be a few outliers from the salt group at the bottom of the control group. These survivors from the 72 hour timepoint may have a genetic advantage.
+*Interpretation*: This data is very similar to the 72 hour data, however, the difference between the three groups is even more drastic. Length and Fecundity both increase with more favorable environments, however, there seem to be a few outliers from the salt group at the bottom of the control group. These survivors from the 72 hour timepoint may have a genetic advantage.
 
 
 ## Q3: Does the nematodes' genetic line correlate with their length and fecundity at 144 hours?
@@ -156,4 +156,4 @@ ggsave('Q5.png', Q5, width = 12, height = 7, units = "in")
 
 ![](Q5.png)
 
-*Interpreation*: This data proves the suspicion that was had in the last graphs. While it did not originally seem like any of the genetic lines had any predisposition to surviving better in any one condition, Line 10 does, in fact, survive better in the saline conditions than any other line.
+*Interpretation*: This data proves the suspicion that was had in the last graphs. While it did not originally seem like any of the genetic lines had any predisposition to surviving better in any one condition, Line 10 does, in fact, survive better in the saline conditions than any other line.
