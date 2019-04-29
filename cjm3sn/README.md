@@ -6,16 +6,16 @@ I used data from https://datadryad.org/bitstream/handle/10255/dryad.78937/Lines_
 ## Downloading Data and Installing Appropriate Packages in R
 wget https://datadryad.org/bitstream/handle/10255/dryad.78937/Lines_data.csv
 mv Lines_data.csv fecund.csv
-# Load into R
+### Load into R
 module load gcc
 module load R/3.5.1
 R
-# Install Necessary Packages
+### Install Necessary Packages
 install.packages("data.table")
 install.packages("ggplot2")
 library(ggplot2)
 library(data.table)
-# Name the data file
+### Name the data file
 fecund <- fread("fecund.csv")
 
 ## Q1: Does the nematodes' fecundity depend on their environment?
