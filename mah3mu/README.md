@@ -5,7 +5,9 @@ I used data from https://datadryad.org/bitstream/handle/10255/dryad.78937/Lines_
 
 ## Q1: Does the environment effect growth?
 
-![](growth_vs_environment_1.png)(growth_vs_environment_2.png)
+![](growth_vs_environment_1.png)
+
+![](growth_vs_environment_2.png)
 
 *Interpretation*: The data show that uranium slightly reduces growth while high salt concentrations greatly increases the spread of changes in growth among the population.
 
