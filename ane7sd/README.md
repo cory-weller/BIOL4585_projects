@@ -17,6 +17,7 @@ This plot shows the mating preference of female Curly and wild-type Drosophila a
 
 ## Q3 What is the difference in the wild-type and curly mutants ability to copy the mating choices they observe?
 
-![Plot 3]
+![Plot 3](Copying_Success.png)
+
 
 This plot shows the success of the curly and wild-type flies copying the mating behavior they observe (mating with curly or wild-type flies). A "Success" at copying is when the observer female chooses to mate with the same male phenotype that she observed mating, while no copying is when the observer female chooses the opposite male to mate with. As shown in this plot, there is not a significant difference between the wild-type and curly mutants ability to copy the mating choices of what they observe. Additionally, just over half of the mating choices for both types of flies are the same as what they observed, indicating that there is some mate-copying present, but it may not be very significant.  
